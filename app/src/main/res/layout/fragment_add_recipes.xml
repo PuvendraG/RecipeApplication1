@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".fragments.AddRecipes">
+
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_marginTop="10dp"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@drawable/imgadd"
+                android:layout_centerHorizontal="true"/>
+
+            <EditText
+                android:id="@+id/recipeName"
+                android:layout_below="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="Name of the recipe" />
+
+            <EditText
+                android:id="@+id/recipeType"
+                android:layout_below="@+id/recipeName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="Type of food" />
+
+            <EditText
+                android:id="@+id/ingredientsAll"
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/recipeType"
+                android:ems="10"
+                android:inputType="textPersonName|textMultiLine"
+                android:hint="Ingredients" />
+
+            <EditText
+                android:id="@+id/stepsR"
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ingredientsAll"
+                android:ems="10"
+                android:inputType="textPersonName|textMultiLine"
+                android:hint="Steps" />
+
+            <Button
+                android:id="@+id/submitBtn"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/stepsR"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/rounded_fg"
+                android:backgroundTint="@color/Turquoise"
+                android:clickable="true"
+                android:text="Submit"
+                android:textAllCaps="false" />
+
+
+
+
+        </RelativeLayout>
+    </ScrollView>
+
+</layout>

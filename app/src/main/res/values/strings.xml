@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">RecipeApplication</string>
+
+
+    <string-array name="food_list">
+        <item>Desserts</item>
+        <item>Asian Food</item>
+        <item>Italian Food</item>
+        <item>Indian Food</item>
+        <item>Drinks</item>
+    </string-array>
+
+    <string name="carrotIngredients">2 cups (250 grams) all-purpose flour
+        2 teaspoons baking soda
+        1/2 teaspoon fine sea salt
+        1 1/2 teaspoons ground cinnamon
+        1 1/4 cups (295 ml) canola or other vegetable oil
+        1 cup (200 grams) granulated sugar
+        1 cup (200 grams) lightly packed brown sugar
+        1 teaspoon vanilla extract
+        4 large eggs
+        3 cups (300 grams) grated peeled carrots (5 to 6 medium carrots)
+        1 cup (100 grams) coarsely chopped pecans
+        1/2 cup (65 grams) raisins</string>
+    <string name="carrot_Ingredients" />
+
+    <string name="lorem_ispum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Scelerisque in dictum non consectetur. Feugiat scelerisque varius morbi enim nunc faucibus. Mi tempus imperdiet nulla malesuada pellentesque elit eget gravida. Tortor at auctor urna nunc id cursus metus. Sed blandit libero volutpat sed. Cras semper auctor neque vitae tempus. Duis at consectetur lorem donec massa sapien. Et odio pellentesque diam volutpat commodo sed. Vel quam elementum pulvinar etiam non. Et leo duis ut diam quam nulla. Placerat in egestas erat imperdiet sed euismod nisi porta lorem. At volutpat diam ut venenatis tellus in metus. Nisl vel pretium lectus quam. Quis imperdiet massa tincidunt nunc pulvinar. Non consectetur a erat nam at lectus. Dolor sit amet consectetur adipiscing elit. Augue ut lectus arcu bibendum at. Nulla aliquet porttitor lacus luctus accumsan tortor posuere ac. Diam vel quam elementum pulvinar etiam non quam.
+        Semper risus in hendrerit gravida rutrum. Auctor augue mauris augue neque gravida in. Praesent semper feugiat nibh sed pulvinar proin gravida hendrerit lectus. Habitant morbi tristique senectus et netus et malesuada fames. Nunc mattis enim ut tellus elementum sagittis vitae et. Urna nunc id cursus metus aliquam eleifend. Dolor sed viverra ipsum nunc aliquet bibendum enim. In est ante in nibh mauris cursus mattis molestie a. Enim sit amet venenatis urna cursus eget nunc scelerisque. At augue eget arcu dictum varius duis at consectetur. Nibh tellus molestie nunc non blandit massa enim nec. Nam libero justo laoreet sit amet cursus sit. Sagittis aliquam malesuada bibendum arcu vitae elementum curabitur vitae nunc. Sed viverra ipsum nunc aliquet bibendum enim. Ultrices in iaculis nunc sed augue lacus viverra vitae. Vel pretium lectus quam id leo in vitae. Non enim praesent elementum facilisis leo vel fringilla est ullamcorper. In cursus turpis massa tincidunt dui ut. Lobortis scelerisque fermentum dui faucibus in ornare quam viverra. Sagittis eu volutpat odio facilisis mauris sit.
+        Ut pharetra sit amet aliquam id diam maecenas ultricies mi. Lobortis scelerisque fermentum dui faucibus in. Fusce id velit ut tortor pretium viverra suspendisse potenti. Nunc aliquet bibendum enim facilisis gravida. Massa massa ultricies mi quis hendrerit. Viverra accumsan in nisl nisi scelerisque. Diam donec adipiscing tristique risus. Amet venenatis urna cursus eget nunc scelerisque. Sit amet aliquam id diam maecenas ultricies mi. Bibendum at varius vel pharetra vel turpis nunc eget lorem. Porta non pulvinar neque laoreet suspendisse interdum consectetur libero id. Ornare quam viverra orci sagittis eu volutpat odio. Eget sit amet tellus cras adipiscing enim. Egestas integer eget aliquet nibh. Ut porttitor leo a diam sollicitudin tempor id eu. Consequat interdum varius sit amet. Euismod elementum nisi quis eleifend quam adipiscing vitae proin sagittis. Tempus imperdiet nulla malesuada pellentesque elit. Volutpat blandit aliquam etiam erat velit scelerisque in dictum. Ullamcorper sit amet risus nullam eget felis.
+        At urna condimentum mattis pellentesque id nibh tortor id. Nunc mi ipsum faucibus vitae aliquet nec. Amet justo donec enim diam vulputate ut. Leo vel fringilla est ullamcorper eget nulla facilisi etiam. Ut lectus arcu bibendum at varius vel. Ut placerat orci nulla pellentesque dignissim enim sit. Proin fermentum leo vel orci porta non pulvinar neque laoreet. Lectus urna duis convallis convallis tellus id interdum. Risus sed vulputate odio ut enim blandit volutpat. Id interdum velit laoreet id donec ultrices tincidunt arcu. Eu augue ut lectus arcu bibendum at varius vel pharetra. Cursus in hac habitasse platea dictumst quisque. Aliquam sem et tortor consequat id porta nibh. Faucibus scelerisque eleifend donec pretium vulputate sapien nec sagittis.
+        Nunc aliquet bibendum enim facilisis gravida neque convallis a cras. Nulla facilisi etiam dignissim diam quis enim lobortis scelerisque. Sed vulputate mi sit amet mauris commodo quis imperdiet massa. Volutpat odio facilisis mauris sit amet massa vitae. Congue quisque egestas diam in arcu cursus euismod. A scelerisque purus semper eget duis at. Dui ut ornare lectus sit amet est. Porttitor eget dolor morbi non arcu. Sit amet aliquam id diam maecenas. Laoreet non curabitur gravida arcu ac tortor dignissim. Cursus turpis massa tincidunt dui ut ornare. Senectus et netus et malesuada fames ac turpis egestas maecenas. Eu turpis egestas pretium aenean pharetra magna ac placerat vestibulum. Amet mauris commodo quis imperdiet. Nec ullamcorper sit amet risus nullam eget. Tempor commodo ullamcorper a lacus vestibulum sed. Nunc lobortis mattis aliquam faucibus purus in massa. Mi bibendum neque egestas congue quisque.
+    </string>
+
+    <string name="error_field_required">This Field Required</string>
+    <string name="recipe_added">Recipe Successfully Added</string>
+    <string name="error">Error: %1$s</string>
+
+</resources>
