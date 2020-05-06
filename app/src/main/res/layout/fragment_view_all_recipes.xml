@@ -9,7 +9,7 @@
         tools:viewBindingIgnore="true"
         tools:context=".fragments.ViewAllRecipes">
 
-        <!-- TODO: Update blank fragment layout -->
+
 
         <Spinner
             android:id="@+id/spinner"
@@ -17,13 +17,23 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_marginTop="10dp"
-            android:layout_below="@+id/spinner"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:listitem="@layout/recyler_view_layout"
-            />
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/spinner">
+
+            <androidx.recyclerview.widget.RecyclerView
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_marginTop="20dp"
+                android:id="@+id/recycler_view_recipes"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:listitem="@layout/recyler_view_layout"
+                />
+
+        </ScrollView>
+
+
 
 
     </RelativeLayout>

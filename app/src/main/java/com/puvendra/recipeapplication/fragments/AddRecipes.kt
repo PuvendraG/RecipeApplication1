@@ -2,13 +2,13 @@ package com.puvendra.recipeapplication.fragments
 
 import android.app.Activity
 import android.content.Intent
-import android.database.Cursor
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -38,12 +38,12 @@ class AddRecipes : Fragment() {
     }
 
     var selectedImage: Uri? = null
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 0 && resultCode == Activity.RESULT_OK && data != null){
             val uri = data.data
             val uploadTask = storageReference!!.putFile(uri!!)
-
             val task = uploadTask.continueWithTask{
                     task ->
                 if (!task.isSuccessful){
@@ -63,7 +63,7 @@ class AddRecipes : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        storageReference = FirebaseStorage.getInstance().getReference("image_upload")
+        storageReference = FirebaseStorage.getInstance().getReference("image_upload/" + selectedImage)
 
         viewModel.result.observe(viewLifecycleOwner, Observer {
             val message = if (it == null) {
