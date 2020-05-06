@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChoosenReciper">
+
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="?attr/actionModeCloseDrawable" />
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/c_imageView"
+                android:layout_marginTop="20dp"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@drawable/cake2"
+                android:layout_centerHorizontal="true" />
+
+            <TextView
+                android:id="@+id/recipeName_"
+                android:layout_below="@+id/c_imageView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:inputType="textPersonName"
+                android:text="Carrot Cake" />
+
+            <TextView
+                android:id="@+id/ingredientsAll_"
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/recipeName_"
+                android:inputType="textPersonName|textMultiLine"
+                android:text="@string/carrotIngredients" />
+
+            <TextView
+                android:id="@+id/stepsR_"
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ingredientsAll_"
+                android:inputType="textPersonName|textMultiLine"
+                android:text="@string/lorem_ispum" />
+
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

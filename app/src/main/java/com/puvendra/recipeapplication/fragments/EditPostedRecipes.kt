@@ -11,14 +11,15 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 
 import com.puvendra.recipeapplication.R
-import com.puvendra.recipeapplication.RecipesAdapter
+import com.puvendra.recipeapplication.adapters.ReciperEditAdapter
+import com.puvendra.recipeapplication.adapters.RecipesAdapter
 import com.puvendra.recipeapplication.recipeViewModel
 import kotlinx.android.synthetic.main.fragment_edit_recipes.*
 
 
 class EditPostedRecipes : Fragment() {
     private lateinit var viewModel : recipeViewModel
-    private val recipesAdapter = RecipesAdapter()
+    private val recipesAdapter = ReciperEditAdapter()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -37,7 +38,6 @@ class EditPostedRecipes : Fragment() {
         edit_posted_recipes.setOnItemSelectedListener(object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View, position: Int, id: Long) {
                 val str: String = edit_posted_recipes.getSelectedItem().toString()
-                //recipeName.setText(str)
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {}
@@ -49,8 +49,7 @@ class EditPostedRecipes : Fragment() {
 
         recyclerEdit_view_recipes.adapter = recipesAdapter
         viewModel.fetchRecipe()
-        viewModel.recipe.observe(viewLifecycleOwner, Observer {
-            recipesAdapter.setRecipes(it)
+        viewModel.recipe.observe(viewLifecycleOwner, Observer { recipesAdapter.setRecipes(it)
         })
 
     }
