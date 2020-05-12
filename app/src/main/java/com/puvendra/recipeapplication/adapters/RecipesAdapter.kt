@@ -6,9 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.puvendra.recipeapplication.ChoosenRecipe
-import com.puvendra.recipeapplication.EditChoosenRecipe
+import com.puvendra.recipeapplication.Interface.RecyclerViewClickListener
 import com.puvendra.recipeapplication.R
-import com.puvendra.recipeapplication.RecyclerViewClickListener
 import com.puvendra.recipeapplication.database.recipeDatabase
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.recyler_view_layout.view.*

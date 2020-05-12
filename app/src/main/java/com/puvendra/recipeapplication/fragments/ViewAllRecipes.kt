@@ -10,15 +10,19 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.google.firebase.database.*
+import com.puvendra.recipeapplication.ChoosenRecipe
+import com.puvendra.recipeapplication.EditerChosenRecipes
 import com.puvendra.recipeapplication.Interface.IFirebaseLoadDone
+import com.puvendra.recipeapplication.Interface.RecyclerViewClickListener
 import com.puvendra.recipeapplication.R
 import com.puvendra.recipeapplication.adapters.RecipesAdapter
 import com.puvendra.recipeapplication.database.recipeDatabase
 import com.puvendra.recipeapplication.recipeViewModel
 import kotlinx.android.synthetic.main.fragment_view_all_recipes.*
+import kotlinx.android.synthetic.main.recyler_view_layout.*
 
 
-class ViewAllRecipes : Fragment(), IFirebaseLoadDone {
+class ViewAllRecipes : Fragment(), IFirebaseLoadDone, RecyclerViewClickListener {
 
     lateinit var reciperRef : DatabaseReference
     lateinit var iFirebaseLoadDone : IFirebaseLoadDone
@@ -67,8 +71,6 @@ class ViewAllRecipes : Fragment(), IFirebaseLoadDone {
         val aa = ArrayAdapter(requireContext(),android.R.layout.simple_spinner_item, reciper_types_)
         spinner.adapter = aa
 
-
-
     }
 
     private fun getRecipeTypes(recipeList: List<recipeDatabase>): List<String> {
@@ -80,7 +82,14 @@ class ViewAllRecipes : Fragment(), IFirebaseLoadDone {
     }
 
     override fun onFirebaseLoadFailure(message: String) {
-        TODO("Not yet implemented")
+
+    }
+
+    override fun onRecyclerViewItemClicked(view: View, recipe: recipeDatabase) {
+
+        recipes_items.setOnClickListener {
+            ChoosenRecipe(recipe).show(childFragmentManager, "")
+        }
     }
 
 }

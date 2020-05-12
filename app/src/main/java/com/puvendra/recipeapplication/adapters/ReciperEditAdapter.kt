@@ -1,18 +1,16 @@
 package com.puvendra.recipeapplication.adapters
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.puvendra.recipeapplication.EditChoosenRecipe
+import com.puvendra.recipeapplication.Interface.RecyclerViewClickListener
 import com.puvendra.recipeapplication.R
-import com.puvendra.recipeapplication.RecyclerViewClickListener
 import com.puvendra.recipeapplication.database.recipeDatabase
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.recyler_view_layout.view.*
 
-class ReciperEditAdapter : RecyclerView.Adapter<ReciperEditAdapter.RecipeEditViewModel>(){
+class ReciperEditAdapter : RecyclerView.Adapter<ReciperEditAdapter.RecipeEditViewModel>() {
 
 
     private var recipes = mutableListOf<recipeDatabase>()
@@ -33,6 +31,9 @@ class ReciperEditAdapter : RecyclerView.Adapter<ReciperEditAdapter.RecipeEditVie
     override fun onBindViewHolder(holder: RecipeEditViewModel, position: Int) {
         holder.view.recipe_name.text = recipes[position].name
         Picasso.get().load(recipes[position].imageURL).into(holder.view.img_recipe)
+        holder.view.recipes_items.setOnClickListener {
+            listener?.onRecyclerViewItemClicked(it,recipes[position]) }
+
     }
 
 
@@ -44,13 +45,12 @@ class ReciperEditAdapter : RecyclerView.Adapter<ReciperEditAdapter.RecipeEditVie
     class RecipeEditViewModel(val view: View) : RecyclerView.ViewHolder(view) {
         init {
             view.setOnClickListener {
-                println("test")
-                val intent = Intent(view.context, EditChoosenRecipe::class.java)
-                view.context.startActivity(intent)
 
             }
         }
     }
+
+
 
 
 }

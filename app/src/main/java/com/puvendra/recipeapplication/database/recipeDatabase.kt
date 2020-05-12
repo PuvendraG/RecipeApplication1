@@ -10,5 +10,7 @@ data class recipeDatabase(
     var foodType: String? = null,
     var name: String? = null,
     var ingredients: String? = null,
-    var steps: String? = null
+    var steps: String? = null,
+    @get:Exclude
+    var isDeleted: Boolean = false
 )
