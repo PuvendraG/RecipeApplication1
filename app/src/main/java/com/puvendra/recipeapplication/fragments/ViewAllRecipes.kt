@@ -11,13 +11,13 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.google.firebase.database.*
 import com.puvendra.recipeapplication.ChoosenRecipe
-import com.puvendra.recipeapplication.EditerChosenRecipes
 import com.puvendra.recipeapplication.Interface.IFirebaseLoadDone
 import com.puvendra.recipeapplication.Interface.RecyclerViewClickListener
 import com.puvendra.recipeapplication.R
 import com.puvendra.recipeapplication.adapters.RecipesAdapter
 import com.puvendra.recipeapplication.database.recipeDatabase
 import com.puvendra.recipeapplication.recipeViewModel
+import kotlinx.android.synthetic.main.fragment_edit_recipes.*
 import kotlinx.android.synthetic.main.fragment_view_all_recipes.*
 import kotlinx.android.synthetic.main.recyler_view_layout.*
 
@@ -27,9 +27,11 @@ class ViewAllRecipes : Fragment(), IFirebaseLoadDone, RecyclerViewClickListener 
     lateinit var reciperRef : DatabaseReference
     lateinit var iFirebaseLoadDone : IFirebaseLoadDone
     private lateinit var viewModel : recipeViewModel
-    private val adapter = RecipesAdapter()
+    private val recipesAdapter = RecipesAdapter()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
+        //Firebase List Spinner
         viewModel = ViewModelProviders.of(this).get(recipeViewModel::class.java)
 
         reciperRef = FirebaseDatabase.getInstance().getReference("recipes")
@@ -60,9 +62,11 @@ class ViewAllRecipes : Fragment(), IFirebaseLoadDone, RecyclerViewClickListener 
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        recycler_view_recipes.adapter = adapter
+        recipesAdapter.listener = this
+        recycler_view_recipes.adapter = recipesAdapter
         viewModel.fetchRecipe()
-        viewModel.recipe.observe(viewLifecycleOwner, Observer { adapter.setRecipes(it) })
+        viewModel.recipe.observe(viewLifecycleOwner, Observer { recipesAdapter.setRecipes(it) })
+
     }
 
     override fun onFirebaseLoadSuccess(recipeList: List<recipeDatabase>) {

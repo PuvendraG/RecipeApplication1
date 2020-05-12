@@ -37,6 +37,7 @@ class ChoosenRecipe(private val recipes : recipeDatabase) : DialogFragment(),
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        Picasso.get().load(recipes.imageURL).into(c_imageView)
         recipeName_.setText(recipes.name)
         ingredientsAll_.setText(recipes.ingredients)
         stepsR_.setText(recipes.steps)

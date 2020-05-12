@@ -31,7 +31,9 @@ class RecipesAdapter : RecyclerView.Adapter<RecipesAdapter.RecipeViewModel>(){
     override fun onBindViewHolder(holder: RecipeViewModel, position: Int) {
 
         holder.view.recipe_name.text = recipes[position].name
-        Picasso.get().load(recipes[position].imageURL).into( holder.view.img_recipe)
+        Picasso.get().load(recipes[position].imageURL).into(holder.view.img_recipe)
+        holder.view.recipes_items.setOnClickListener {
+            listener?.onRecyclerViewItemClicked(it,recipes[position]) }
 
     }
 
@@ -42,14 +44,6 @@ class RecipesAdapter : RecyclerView.Adapter<RecipesAdapter.RecipeViewModel>(){
 
     class RecipeViewModel(val view:  View) : RecyclerView.ViewHolder(view){
 
-        init {
-            view.setOnClickListener {
-                println("test" )
-                val intent = Intent(view.context , ChoosenRecipe::class.java )
-                view.context.startActivity(intent)
-
-            }
-        }
     }
 
 

@@ -43,11 +43,7 @@ class ReciperEditAdapter : RecyclerView.Adapter<ReciperEditAdapter.RecipeEditVie
     }
 
     class RecipeEditViewModel(val view: View) : RecyclerView.ViewHolder(view) {
-        init {
-            view.setOnClickListener {
 
-            }
-        }
     }
 
 

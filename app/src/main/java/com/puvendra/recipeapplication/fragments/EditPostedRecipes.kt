@@ -45,6 +45,8 @@ class EditPostedRecipes : Fragment(), RecyclerViewClickListener {
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         })
+
+
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
