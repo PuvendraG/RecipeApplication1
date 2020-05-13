@@ -39,6 +39,19 @@ class EditerChosenRecipes(private val recipes : recipeDatabase) : DialogFragment
         recipeName.setText(recipes.name)
         ingredientsAll.setText(recipes.ingredients)
         stepsR.setText(recipes.steps)
+
+        submitBtn.setOnClickListener {
+            val name = recipeName.text.toString().trim()
+            val ingredients = ingredientsAll.text.toString().trim()
+            val steps = stepsR.text.toString().trim()
+
+            recipes.name = name
+            recipes.ingredients = ingredients
+            recipes.steps = steps
+
+            viewModel.updateRecipe(recipes)
+
+        }
     }
 
 

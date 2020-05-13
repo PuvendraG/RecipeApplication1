@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Spinner
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.puvendra.recipeapplication.*
@@ -19,10 +20,12 @@ import kotlinx.android.synthetic.main.recyler_view_layout.*
 
 
 
-class EditPostedRecipes : Fragment(), RecyclerViewClickListener {
+class EditPostedRecipes : Fragment(), RecyclerViewClickListener{
 
     private lateinit var viewModel : recipeViewModel
     private val recipesAdapter = ReciperEditAdapter()
+
+    var spinner:Spinner? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -35,16 +38,18 @@ class EditPostedRecipes : Fragment(), RecyclerViewClickListener {
         super.onViewCreated(view, savedInstanceState)
 
         //Internal List
-        val adapter = ArrayAdapter.createFromResource(requireContext(), R.array.food_list, android.R.layout.simple_spinner_item)
+       val adapter = ArrayAdapter.createFromResource(requireContext(), R.array.food_list, android.R.layout.simple_spinner_item)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-
         edit_posted_recipes.adapter = adapter
-        edit_posted_recipes.setOnItemSelectedListener(object : AdapterView.OnItemSelectedListener {
+        //Attempt to make a filter, get the selected item and use an query function to get back the foodtype selected
+        edit_posted_recipes.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View, position: Int, id: Long) {
-                val str: String = edit_posted_recipes.getSelectedItem().toString()
+                val str: String = edit_posted_recipes.selectedItem.toString()
             }
+
             override fun onNothingSelected(parent: AdapterView<*>?) {}
-        })
+        }
+
 
 
     }
@@ -60,13 +65,21 @@ class EditPostedRecipes : Fragment(), RecyclerViewClickListener {
 
     }
 
-    override fun onRecyclerViewItemClicked(view: View, reciper: recipeDatabase) {
-
+    override fun onRecyclerViewItemClicked(view: View, recipe: recipeDatabase) {
         recipes_items.setOnClickListener {
-            EditerChosenRecipes(reciper).show(childFragmentManager, "")
+            EditerChosenRecipes(recipe).show(childFragmentManager, "")
         }
-
-
     }
 
+    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View? {
+        return view
+    }
+
+
+
 }
+
+
+
+
+

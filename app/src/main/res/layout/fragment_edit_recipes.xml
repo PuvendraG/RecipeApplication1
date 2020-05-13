@@ -14,7 +14,9 @@
         android:id="@+id/edit_posted_recipes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp" />
+        android:clickable="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp" />
 
     <ScrollView
         android:layout_width="match_parent"

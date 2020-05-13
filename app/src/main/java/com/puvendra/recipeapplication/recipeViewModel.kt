@@ -59,4 +59,15 @@ class recipeViewModel: ViewModel() {
 
     }
 
+
+    fun updateRecipe(recipes : recipeDatabase){
+        dbRecipes.child(recipes.recipeId!!).setValue(recipes).addOnCompleteListener {
+            if(it.isSuccessful){
+                _result.value = null
+            }else{
+                _result.value = it.exception
+            }
+        }
+    }
+
 }
