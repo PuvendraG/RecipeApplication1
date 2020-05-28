@@ -1,11 +1,9 @@
 package com.puvendra.recipeapplication.adapters
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.puvendra.recipeapplication.ChoosenRecipe
 import com.puvendra.recipeapplication.Interface.RecyclerViewClickListener
 import com.puvendra.recipeapplication.R
 import com.puvendra.recipeapplication.database.recipeDatabase
@@ -34,12 +32,13 @@ class RecipesAdapter : RecyclerView.Adapter<RecipesAdapter.RecipeViewModel>(){
         Picasso.get().load(recipes[position].imageURL).into(holder.view.img_recipe)
         holder.view.recipes_items.setOnClickListener {
             listener?.onRecyclerViewItemClicked(it,recipes[position]) }
+        //getting certain data like the name and image from database and adding the ItemClicked listener to pass the data to the dialog fragment
 
     }
 
     fun setRecipes(recipes_: List<recipeDatabase>){
         this.recipes = recipes_ as MutableList<recipeDatabase>
-        notifyDataSetChanged()
+        notifyDataSetChanged()//live data update
     }
 
     class RecipeViewModel(val view:  View) : RecyclerView.ViewHolder(view){

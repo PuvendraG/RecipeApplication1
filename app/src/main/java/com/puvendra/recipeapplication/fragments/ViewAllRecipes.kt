@@ -10,14 +10,14 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.google.firebase.database.*
-import com.puvendra.recipeapplication.ChoosenRecipe
+import com.puvendra.recipeapplication.DialogFragments.ChoosenRecipe
 import com.puvendra.recipeapplication.Interface.IFirebaseLoadDone
 import com.puvendra.recipeapplication.Interface.RecyclerViewClickListener
+import com.puvendra.recipeapplication.MainActivity
 import com.puvendra.recipeapplication.R
 import com.puvendra.recipeapplication.adapters.RecipesAdapter
 import com.puvendra.recipeapplication.database.recipeDatabase
 import com.puvendra.recipeapplication.recipeViewModel
-import kotlinx.android.synthetic.main.fragment_edit_recipes.*
 import kotlinx.android.synthetic.main.fragment_view_all_recipes.*
 import kotlinx.android.synthetic.main.recyler_view_layout.*
 
@@ -34,9 +34,11 @@ class ViewAllRecipes : Fragment(), IFirebaseLoadDone, RecyclerViewClickListener 
         //Firebase List Spinner
         viewModel = ViewModelProviders.of(this).get(recipeViewModel::class.java)
 
+        //Looks into a file called recipes in the firebase
         reciperRef = FirebaseDatabase.getInstance().getReference("recipes")
         iFirebaseLoadDone= this
 
+        //Make sure live data is is being fetch from the database
         reciperRef.addValueEventListener(object: ValueEventListener{
             var recipeList_:MutableList<recipeDatabase> = ArrayList<recipeDatabase>()
             override fun onCancelled(p0: DatabaseError) {
@@ -78,6 +80,7 @@ class ViewAllRecipes : Fragment(), IFirebaseLoadDone, RecyclerViewClickListener 
     }
 
     private fun getRecipeTypes(recipeList: List<recipeDatabase>): List<String> {
+        //populating the spinner list
         val result = ArrayList<String>()
         for (recipe in recipeList)
             result.add(recipe.foodType!!)
@@ -90,9 +93,10 @@ class ViewAllRecipes : Fragment(), IFirebaseLoadDone, RecyclerViewClickListener 
     }
 
     override fun onRecyclerViewItemClicked(view: View, recipe: recipeDatabase) {
-
+        //to open up the dialog fragment based on what is clicked on the recycler view
         recipes_items.setOnClickListener {
-            ChoosenRecipe(recipe).show(childFragmentManager, "")
+            ChoosenRecipe(recipe)
+                .show(childFragmentManager, "")
         }
     }
 
@@ -100,4 +104,6 @@ class ViewAllRecipes : Fragment(), IFirebaseLoadDone, RecyclerViewClickListener 
         return view
     }
 
+
+    
 }

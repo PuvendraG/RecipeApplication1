@@ -25,7 +25,7 @@ class recipeViewModel: ViewModel() {
     val result : LiveData<Exception?>get()=_result
 
     fun addRecipe(recipes: recipeDatabase){
-
+        //Adding recipes into the database
         recipes.recipeId = dbRecipes.push().key.toString() // Id of the recipes
         dbRecipes.child(recipes.recipeId!!).setValue(recipes).addOnCompleteListener {
             if(it.isSuccessful){
@@ -36,6 +36,7 @@ class recipeViewModel: ViewModel() {
         }
      }
 
+    //Fetching back the data from Firebase
     fun fetchRecipe(){
         dbRecipes.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {}
@@ -60,6 +61,7 @@ class recipeViewModel: ViewModel() {
     }
 
 
+    //Updating the selected recipes
     fun updateRecipe(recipes : recipeDatabase){
         dbRecipes.child(recipes.recipeId!!).setValue(recipes).addOnCompleteListener {
             if(it.isSuccessful){

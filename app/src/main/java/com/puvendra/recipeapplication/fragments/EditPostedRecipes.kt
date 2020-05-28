@@ -12,6 +12,7 @@ import android.widget.Spinner
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.puvendra.recipeapplication.*
+import com.puvendra.recipeapplication.DialogFragments.EditerChosenRecipes
 import com.puvendra.recipeapplication.Interface.RecyclerViewClickListener
 import com.puvendra.recipeapplication.adapters.ReciperEditAdapter
 import com.puvendra.recipeapplication.database.recipeDatabase
@@ -31,13 +32,14 @@ class EditPostedRecipes : Fragment(), RecyclerViewClickListener{
 
         viewModel = ViewModelProviders.of(this).get(recipeViewModel::class.java)
 
+        //layout inflater
         return inflater.inflate(R.layout.fragment_edit_recipes, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //Internal List
+        //Internal List for the categories
        val adapter = ArrayAdapter.createFromResource(requireContext(), R.array.food_list, android.R.layout.simple_spinner_item)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         edit_posted_recipes.adapter = adapter
@@ -59,6 +61,7 @@ class EditPostedRecipes : Fragment(), RecyclerViewClickListener{
 
         recipesAdapter.listener = this
 
+        //getting the recycler view to be populated by the data
         recyclerEdit_view_recipes.adapter = recipesAdapter
         viewModel.fetchRecipe()
         viewModel.recipe.observe(viewLifecycleOwner, Observer { recipesAdapter.setRecipes(it) })
@@ -67,7 +70,11 @@ class EditPostedRecipes : Fragment(), RecyclerViewClickListener{
 
     override fun onRecyclerViewItemClicked(view: View, recipe: recipeDatabase) {
         recipes_items.setOnClickListener {
-            EditerChosenRecipes(recipe).show(childFragmentManager, "")
+            //by clicking any item of the recycler view it will send you to EditerChoosenRecipes to edit the chosen recipe to edit
+            EditerChosenRecipes(
+                recipe
+            )
+                .show(childFragmentManager, "")
         }
     }
 

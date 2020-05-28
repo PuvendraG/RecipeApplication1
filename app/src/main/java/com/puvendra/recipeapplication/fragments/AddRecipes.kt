@@ -28,8 +28,10 @@ class AddRecipes : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         viewModel = ViewModelProviders.of(this).get(recipeViewModel::class.java)
-        return inflater.inflate(R.layout.fragment_add_recipes, container, false)
+        //data and its functions in order to get live data and update data
 
+        return inflater.inflate(R.layout.fragment_add_recipes, container, false)
+        //Layout for this fragment
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -38,9 +40,11 @@ class AddRecipes : Fragment() {
     }
 
     var selectedImage: Uri? = null
+    //The link for the image it self
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+
         if (requestCode == 0 && resultCode == Activity.RESULT_OK && data != null){
             val uri = data.data
             val uploadTask = storageReference!!.putFile(uri!!)
@@ -58,6 +62,7 @@ class AddRecipes : Fragment() {
                 }
             }
         }
+        //Getting picture from camera or album and svaing it into FirebaseStorage
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -88,13 +93,13 @@ class AddRecipes : Fragment() {
             val recipe_steps = stepsR.text.toString().trim()
 
             val recipe = recipeDatabase()
-            Log.d("Direct_Link ", selectedImage.toString())
             recipe.imageURL = selectedImage.toString()
             recipe.name = recipe_Name
             recipe.foodType = recipe_Type
             recipe.ingredients = recipe_ingredients
             recipe.steps = recipe_steps
             viewModel.addRecipe(recipe)
+            //Adding all the data into the Firebase Realtime Database
 
         }
 

@@ -6,13 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     >
-    <FrameLayout
-        android:id="@+id/myFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="20dp"
-        android:layout_below="@+id/btnsSpace"/>
+
 
 
     <LinearLayout
@@ -58,6 +52,15 @@
 
 
     </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/myFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:layout_below="@+id/btnsSpace">
+    </FrameLayout>
 
 
 

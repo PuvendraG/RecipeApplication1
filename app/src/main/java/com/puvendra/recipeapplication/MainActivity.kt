@@ -1,21 +1,15 @@
 package com.puvendra.recipeapplication
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.FirebaseApp
-import com.google.firebase.FirebaseOptions
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.ValueEventListener
-
 import com.puvendra.recipeapplication.fragments.AddRecipes
 import com.puvendra.recipeapplication.fragments.EditPostedRecipes
 import com.puvendra.recipeapplication.fragments.ViewAllRecipes
+import kotlinx.android.synthetic.main.activity_main.*
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity(message: String?) : AppCompatActivity() {
     private val fragmentManager = supportFragmentManager
     private val addRecipes = AddRecipes()
     private val editPostedRecipes = EditPostedRecipes()
@@ -37,18 +31,20 @@ class MainActivity : AppCompatActivity() {
             val fragmentTransaction = fragmentManager.beginTransaction()
             fragmentTransaction.replace(R.id.myFragment, viewAllRecipes)
             fragmentTransaction.commit()
-        }
+        } //main fragment to view all the recipes
+
         addBtn.setOnClickListener(){
             val fragmentTransaction = fragmentManager.beginTransaction()
             fragmentTransaction.replace(R.id.myFragment, addRecipes)
             fragmentTransaction.commit()
-        }
+        } // to add recipes
         editBtn.setOnClickListener(){
             val fragmentTransaction = fragmentManager.beginTransaction()
             fragmentTransaction.replace(R.id.myFragment, editPostedRecipes)
             fragmentTransaction.commit()
-        }
+        } // Listed recipes where you can go edit them
     }
+
 
 
 }
