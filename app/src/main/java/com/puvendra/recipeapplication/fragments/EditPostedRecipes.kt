@@ -10,6 +10,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.puvendra.recipeapplication.*
 import com.puvendra.recipeapplication.DialogFragments.EditerChosenRecipes
@@ -30,7 +31,7 @@ class EditPostedRecipes : Fragment(), RecyclerViewClickListener{
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        viewModel = ViewModelProviders.of(this).get(recipeViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(recipeViewModel::class.java)
 
         //layout inflater
         return inflater.inflate(R.layout.fragment_edit_recipes, container, false)
@@ -71,10 +72,7 @@ class EditPostedRecipes : Fragment(), RecyclerViewClickListener{
     override fun onRecyclerViewItemClicked(view: View, recipe: recipeDatabase) {
         recipes_items.setOnClickListener {
             //by clicking any item of the recycler view it will send you to EditerChoosenRecipes to edit the chosen recipe to edit
-            EditerChosenRecipes(
-                recipe
-            )
-                .show(childFragmentManager, "")
+            EditerChosenRecipes(recipe).show(childFragmentManager, "")
         }
     }
 

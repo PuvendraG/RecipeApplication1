@@ -8,12 +8,11 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.database.*
 import com.puvendra.recipeapplication.DialogFragments.ChoosenRecipe
 import com.puvendra.recipeapplication.Interface.IFirebaseLoadDone
 import com.puvendra.recipeapplication.Interface.RecyclerViewClickListener
-import com.puvendra.recipeapplication.MainActivity
 import com.puvendra.recipeapplication.R
 import com.puvendra.recipeapplication.adapters.RecipesAdapter
 import com.puvendra.recipeapplication.database.recipeDatabase
@@ -32,7 +31,7 @@ class ViewAllRecipes : Fragment(), IFirebaseLoadDone, RecyclerViewClickListener 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         //Firebase List Spinner
-        viewModel = ViewModelProviders.of(this).get(recipeViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(recipeViewModel::class.java)
 
         //Looks into a file called recipes in the firebase
         reciperRef = FirebaseDatabase.getInstance().getReference("recipes")

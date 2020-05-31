@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import com.puvendra.recipeapplication.Interface.RecyclerViewClickListener
 import com.puvendra.recipeapplication.R
 import com.puvendra.recipeapplication.database.recipeDatabase
@@ -18,6 +18,7 @@ class ChoosenRecipe(private val recipes : recipeDatabase) : DialogFragment(),
 
     private lateinit var viewModel : recipeViewModel
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -28,9 +29,9 @@ class ChoosenRecipe(private val recipes : recipeDatabase) : DialogFragment(),
         savedInstanceState: Bundle?): View? {
 
         // to get data,  ViewModel is to encapsulate the data for a UI controller to let the data survive configuration change
-        viewModel = ViewModelProviders.of(this).get(recipeViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(recipeViewModel::class.java)
 
-        //inflater
+        //inflaterge
         return inflater.inflate(R.layout.choose_recipes_, container, false)
     }
 

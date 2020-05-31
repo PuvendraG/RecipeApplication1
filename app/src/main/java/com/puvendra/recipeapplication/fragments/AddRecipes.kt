@@ -12,6 +12,7 @@ import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
@@ -27,7 +28,7 @@ class AddRecipes : Fragment() {
     lateinit var storageReference: StorageReference
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        viewModel = ViewModelProviders.of(this).get(recipeViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(recipeViewModel::class.java)
         //data and its functions in order to get live data and update data
 
         return inflater.inflate(R.layout.fragment_add_recipes, container, false)

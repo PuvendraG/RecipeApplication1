@@ -1,15 +1,14 @@
-package com.puvendra.recipeapplication
+  package com.puvendra.recipeapplication
 
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import androidx.appcompat.app.AppCompatActivity
 import com.puvendra.recipeapplication.fragments.AddRecipes
 import com.puvendra.recipeapplication.fragments.EditPostedRecipes
 import com.puvendra.recipeapplication.fragments.ViewAllRecipes
-import kotlinx.android.synthetic.main.activity_main.*
 
+  class Main2Activity : AppCompatActivity() {
 
-class MainActivity(message: String?) : AppCompatActivity() {
     private val fragmentManager = supportFragmentManager
     private val addRecipes = AddRecipes()
     private val editPostedRecipes = EditPostedRecipes()
@@ -44,7 +43,6 @@ class MainActivity(message: String?) : AppCompatActivity() {
             fragmentTransaction.commit()
         } // Listed recipes where you can go edit them
     }
-
 
 
 }
