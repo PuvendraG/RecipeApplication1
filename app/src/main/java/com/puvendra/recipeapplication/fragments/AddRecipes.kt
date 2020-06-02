@@ -11,21 +11,28 @@ import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import com.google.android.gms.dynamic.SupportFragmentWrapper
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.puvendra.recipeapplication.R
 import com.puvendra.recipeapplication.database.recipeDatabase
 import com.puvendra.recipeapplication.recipeViewModel
 import kotlinx.android.synthetic.main.fragment_add_recipes.*
+import java.io.File
+import java.util.*
 
 
 class AddRecipes : Fragment() {
 
     private lateinit var viewModel: recipeViewModel
     lateinit var storageReference: StorageReference
+    private val viewAllRecipes = ViewAllRecipes()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         viewModel = ViewModelProvider(this).get(recipeViewModel::class.java)
@@ -63,13 +70,14 @@ class AddRecipes : Fragment() {
                 }
             }
         }
-        //Getting picture from camera or album and svaing it into FirebaseStorage
+        //Getting picture from camera or album and saving it into FirebaseStorage
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        storageReference = FirebaseStorage.getInstance().getReference("image_upload/" + selectedImage)
+        val filename = UUID.randomUUID().toString()
+        storageReference = FirebaseStorage.getInstance().getReference("image_upload/$filename" )
 
         viewModel.result.observe(viewLifecycleOwner, Observer {
             val message = if (it == null) {
@@ -103,6 +111,7 @@ class AddRecipes : Fragment() {
             //Adding all the data into the Firebase Realtime Database
 
         }
+
 
     }
 

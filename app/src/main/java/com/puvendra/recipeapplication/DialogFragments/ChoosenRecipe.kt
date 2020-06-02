@@ -18,7 +18,6 @@ class ChoosenRecipe(private val recipes : recipeDatabase) : DialogFragment(),
 
     private lateinit var viewModel : recipeViewModel
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

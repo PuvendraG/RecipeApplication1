@@ -42,6 +42,7 @@ import com.puvendra.recipeapplication.fragments.ViewAllRecipes
             fragmentTransaction.replace(R.id.myFragment, editPostedRecipes)
             fragmentTransaction.commit()
         } // Listed recipes where you can go edit them
+
     }
 
 
